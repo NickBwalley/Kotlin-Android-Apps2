@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">LAB3INPUTCONTROLS</string>
+
+    <string name="ice_cream_sandwiches">Ice cream sandwiches have chocolate wafers and vanilla filling.</string>
+    <string name="donuts">Donuts are glazed and sprinkled with candy.</string>
+    <string name="froyo">FroYo is premium self-serve frozen yogurt.</string>
+
+    <integer name="donut_order_message">50</integer>
+    <integer name="ice_cream_order_message">150</integer>
+    <integer name="froyo_order_message">200</integer>
+
+    <integer name="same_day_delivery">300</integer>
+    <integer name="next_day_delivery">100</integer>
+    <integer name="pick_up">0</integer>
+
+</resources>
