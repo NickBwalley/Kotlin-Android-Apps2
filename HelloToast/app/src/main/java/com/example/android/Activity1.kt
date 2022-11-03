@@ -11,9 +11,11 @@ class Activity1 : AppCompatActivity() {
         setContentView(R.layout.activity_1)
 
         val button1 = findViewById<Button>(R.id.button1_id)
+
+        // EXAMPLE OF AN EXPLICIT INTENT.
         button1.setOnClickListener{
-            val Intent = Intent(this, Activity2::class.java)
-            startActivity(Intent)
+            val intent = Intent(this, Activity2::class.java)
+            startActivity(intent)
         }
     }
 }

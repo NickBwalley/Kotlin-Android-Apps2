@@ -31,5 +31,14 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(webIntent)
         }
+        // THIS IS AN EXAMPLE OF AN EXPLICIT INTENT.
+//        button2.setOnClickListener{
+//            var intentOpenPhoto = Intent(this, PhotoActivity::class.java)
+//            startActivity(intentOpenPhoto)
+//        }
+        // this is an example of an implicit intent.
+//        Intent intent = new Intent(Intent.ACTION_VIEW)
+//        intent.setData(Uri.parse('https://www.facebook.com'))
+//        startActivity(intent)
     }
 }
