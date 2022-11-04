@@ -9,6 +9,12 @@
     <string name="ice_cream_order_message">150</string>
     <string name="froyo_order_message">200</string>
 
+    <string name="sprinkles_toppings">20</string>
+    <string name="oreos_toppings">30</string>
+    <string name="fruit_toppings">50</string>
+
+
+
     <string name="same_day_delivery">300</string>
     <string name="next_day_delivery">100</string>
     <string name="pick_up">0</string>

@@ -11,6 +11,12 @@ import java.lang.reflect.Array.getInt
 
 class MainActivity : AppCompatActivity() {
     var orderMessage = ""
+    var sprinkles = ""
+    var oreos = ""
+    var fruit = ""
+    var temp = 0
+    var donut_total = 0
+    var result1sln = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         donut.setOnClickListener{
             // fetch message from string.xml using getString() method
             orderMessage = getString(R.string.donut_order_message)
+            donut_total = orderMessage.toInt() + temp
             displayToast(orderMessage)
         }
 
@@ -50,13 +57,20 @@ class MainActivity : AppCompatActivity() {
         orderButton.setOnClickListener{
             //checking whether the checkboxes have beeen selected
             if(sprinkleCheck.isChecked){
-                // do sth
+                sprinkles = getString(R.string.sprinkles_toppings)
+                var newSprinkles = sprinkles.toInt()
+                var result1 = donut_total + newSprinkles
+                result1sln = result1
+                orderMessage = result1sln.toString()
+                displayToast(orderMessage)
             }
             if(oreoCheck.isChecked){
-                // do sth
+                oreos = getString(R.string.oreos_toppings)
+                displayToast(oreos)
             }
             if(fruitCheck.isChecked){
-                // do sth
+                fruit = getString(R.string.fruit_toppings)
+                displayToast(fruit)
             }
 
             var intentOrder = Intent(this, OrderActivity::class.java)
