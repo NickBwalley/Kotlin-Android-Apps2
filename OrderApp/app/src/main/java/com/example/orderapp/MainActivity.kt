@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     var fruit = ""
     var temp = 0
     var donut_total = 0
+    var iceCream_total = 0
     var result1sln = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +44,15 @@ class MainActivity : AppCompatActivity() {
         iceCream.setOnClickListener{
             // fetch message from string.xml using getString() method
             orderMessage = getString(R.string.ice_cream_order_message)
+            temp = 0
+            iceCream_total = orderMessage.toInt() + temp
+            if(sprinkleCheck.isChecked){
+                result1sln = iceCream_total + 20
+                orderMessage = result1sln.toString()
+                displayToast(orderMessage)
+            }
             displayToast(orderMessage)
+
         }
 
         // When the froyo image is clicked
