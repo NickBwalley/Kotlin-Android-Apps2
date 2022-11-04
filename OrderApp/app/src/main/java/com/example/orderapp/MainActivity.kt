@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         // When the donut image is clicked
         donut.setOnClickListener{
             // fetch message from string.xml using getString() method
-            orderMessage = getInt(R.integer.donut_order_message)
+            orderMessage = getString(R.string.donut_order_message)
             displayToast(orderMessage)
         }
 
