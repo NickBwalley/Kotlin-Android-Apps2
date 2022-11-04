@@ -66,11 +66,15 @@ class MainActivity : AppCompatActivity() {
             }
             if(oreoCheck.isChecked){
                 oreos = getString(R.string.oreos_toppings)
-                displayToast(oreos)
+                result1sln = result1sln + oreos.toInt()
+                orderMessage = result1sln.toString()
+                displayToast(orderMessage)
             }
             if(fruitCheck.isChecked){
                 fruit = getString(R.string.fruit_toppings)
-                displayToast(fruit)
+                result1sln = result1sln + fruit.toInt()
+                orderMessage = result1sln.toString()
+                displayToast(orderMessage)
             }
 
             var intentOrder = Intent(this, OrderActivity::class.java)
