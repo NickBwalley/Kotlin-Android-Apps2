@@ -49,4 +49,10 @@ class OrderActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        var goHome = Intent(this, MainActivity::class.java)
+        startActivity(goHome)
+    }
 }

@@ -94,6 +94,7 @@ class MainActivity : AppCompatActivity() {
             var intentOrder = Intent(this, OrderActivity::class.java)
             intentOrder.putExtra("ORDER", orderMessage)
             startActivity(intentOrder)
+
         }
     }
 
@@ -101,4 +102,5 @@ class MainActivity : AppCompatActivity() {
     private fun displayToast(message: String){
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
+
 }
