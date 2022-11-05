@@ -12,12 +12,12 @@ import java.lang.reflect.Array.getInt
 
 class MainActivity : AppCompatActivity() {
     var orderMessage = ""
+    var newSprinkles = 0
+    var newOreos = 0
+    var newFruits = 0
     var sprinkles = ""
     var oreos = ""
     var fruit = ""
-    var temp = 0
-    var donut_total = 0
-    var iceCream_total = 0
     var result1sln = 0
     var temp_donut = 0
     var temp_icecream = 0
@@ -68,23 +68,27 @@ class MainActivity : AppCompatActivity() {
             //checking whether the checkboxes have beeen selected
             if(sprinkleCheck.isChecked){
                 sprinkles = getString(R.string.sprinkles_toppings)
-                var newSprinkles = sprinkles.toInt()
+                newSprinkles = 20
                 var result1 = temp_donut + temp_icecream + temp_froyo + newSprinkles
                 result1sln = result1
                 orderMessage = result1sln.toString()
-                displayToast(orderMessage)
+//                displayToast(orderMessage)
             }
             if(oreoCheck.isChecked){
                 oreos = getString(R.string.oreos_toppings)
-                result1sln = result1sln + oreos.toInt()
+                newOreos = 30
+                var result2 = result1sln + newOreos
+                result1sln = result2
                 orderMessage = result1sln.toString()
-                displayToast(orderMessage)
+//                displayToast(orderMessage)
             }
             if(fruitCheck.isChecked){
                 fruit = getString(R.string.fruit_toppings)
-                result1sln = result1sln + fruit.toInt()
+                newFruits = 50
+                var result3 = result1sln + newFruits
+                result1sln = result3
                 orderMessage = result1sln.toString()
-                displayToast(orderMessage)
+//                displayToast(orderMessage)
             }
 
             var intentOrder = Intent(this, OrderActivity::class.java)
