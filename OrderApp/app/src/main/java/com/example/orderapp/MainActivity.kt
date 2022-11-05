@@ -3,6 +3,7 @@ package com.example.orderapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.Toast
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
     var donut_total = 0
     var iceCream_total = 0
     var result1sln = 0
+    var temp_donut = 0
+    var temp_icecream = 0
+    var temp_froyo = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,31 +41,27 @@ class MainActivity : AppCompatActivity() {
         donut.setOnClickListener{
             // fetch message from string.xml using getString() method
             orderMessage = getString(R.string.donut_order_message)
-            donut_total = orderMessage.toInt() + temp
-            displayToast(orderMessage)
+            temp_donut = orderMessage.toInt()
+            displayToast(temp_donut.toString())
         }
+
 
         // When the icecream image is clicked
         iceCream.setOnClickListener{
             // fetch message from string.xml using getString() method
             orderMessage = getString(R.string.ice_cream_order_message)
-            temp = 0
-            iceCream_total = orderMessage.toInt() + temp
-            if(sprinkleCheck.isChecked){
-                result1sln = iceCream_total + 20
-                orderMessage = result1sln.toString()
-                displayToast(orderMessage)
-            }
-            displayToast(orderMessage)
-
+            temp_icecream = orderMessage.toInt()
+            displayToast(temp_icecream.toString())
         }
 
         // When the froyo image is clicked
         froyo.setOnClickListener{
             // fetch message from string.xml using getString() method
             orderMessage = getString(R.string.froyo_order_message)
-            displayToast(orderMessage)
+            temp_froyo = orderMessage.toInt()
+            displayToast(temp_froyo.toString())
         }
+
 
         //Logic for the Floating action button
         orderButton.setOnClickListener{
@@ -68,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             if(sprinkleCheck.isChecked){
                 sprinkles = getString(R.string.sprinkles_toppings)
                 var newSprinkles = sprinkles.toInt()
-                var result1 = donut_total + newSprinkles
+                var result1 = temp_donut + temp_icecream + temp_froyo + newSprinkles
                 result1sln = result1
                 orderMessage = result1sln.toString()
                 displayToast(orderMessage)
