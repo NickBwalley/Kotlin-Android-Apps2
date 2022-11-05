@@ -59,6 +59,7 @@ class OrderActivity : AppCompatActivity() {
             }
 
             var intentReceiptActivity = Intent(this, ReceiptActivity::class.java)
+            intentReceiptActivity.putExtra("RECEIPT", grandTotal.toString())
             startActivity(intentReceiptActivity)
         }
 
