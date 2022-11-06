@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
             Player("Curry", 30),
             Player("Shaq", 29),
             Player("Lukaku", 9),
-            Player("Sancho", 10),)
+            Player("Sancho", 10),
+            Player("Nick", 79))
 
         // create a PlayerAdapter object and pass to it the data to be displayed in views on the REcyclerView
         var playerAdapter = PlayerAdapter(players)
