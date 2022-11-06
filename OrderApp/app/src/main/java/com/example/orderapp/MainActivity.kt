@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             if(oreoCheck.isChecked){
                 oreos = getString(R.string.oreos_toppings)
                 newOreos = 30
-                var result2 = result1sln + newOreos
+                var result2 = temp_donut + temp_icecream + temp_froyo + newOreos
                 result1sln = result2
                 orderMessage = result1sln.toString()
 //                displayToast(orderMessage)
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             if(fruitCheck.isChecked){
                 fruit = getString(R.string.fruit_toppings)
                 newFruits = 50
-                var result3 = result1sln + newFruits
+                var result3 = temp_donut + temp_icecream + temp_froyo + newFruits
                 result1sln = result3
                 orderMessage = result1sln.toString()
 //                displayToast(orderMessage)
