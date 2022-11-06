@@ -2,6 +2,7 @@ package com.example.recyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -24,5 +25,14 @@ class MainActivity : AppCompatActivity() {
             Player("Shaq", 29),
             Player("Lukaku", 9),
             Player("Sancho", 10),)
+
+        // create a PlayerAdapter object and pass to it the data to be displayed in views on the REcyclerView
+        var playerAdapter = PlayerAdapter(players)
+
+        // Associate the player adapter above to the recyclerview so as to have views available for display
+        recyclerViewDetails.adapter = playerAdapter
+
+        // Use LinearLayoutManager to arrange items vertically on the screen
+        recyclerViewDetails.layoutManager = LinearLayoutManager(this)
     }
 }
