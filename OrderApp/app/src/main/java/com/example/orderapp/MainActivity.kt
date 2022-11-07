@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     var temp_donut = 0
     var temp_icecream = 0
     var temp_froyo = 0
+    var temp_val_ischecked = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +78,7 @@ class MainActivity : AppCompatActivity() {
             if(oreoCheck.isChecked){
                 oreos = getString(R.string.oreos_toppings)
                 newOreos = 30
-                var result2 = temp_donut + temp_icecream + temp_froyo + newOreos
+                var result2 = temp_donut + temp_icecream + temp_froyo + newOreos + newSprinkles
                 result1sln = result2
                 orderMessage = result1sln.toString()
 //                displayToast(orderMessage)
@@ -85,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             if(fruitCheck.isChecked){
                 fruit = getString(R.string.fruit_toppings)
                 newFruits = 50
-                var result3 = temp_donut + temp_icecream + temp_froyo + newFruits
+                var result3 = temp_donut + temp_icecream + temp_froyo + newFruits + newOreos + newSprinkles
                 result1sln = result3
                 orderMessage = result1sln.toString()
 //                displayToast(orderMessage)
