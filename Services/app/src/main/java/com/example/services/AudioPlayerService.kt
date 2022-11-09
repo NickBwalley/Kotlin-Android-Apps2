@@ -1,14 +1,13 @@
 package com.example.services
 
+import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.media.audiofx.BassBoost.Settings
 import android.os.IBinder
-import android.os.PersistableBundle
 import android.widget.Toast
 
-class AudioPlayerService : AppCompatActivity() {
+class AudioPlayerService : Service() {
     // create a MediaPlayer object to be used to access the phone's default ringtone
     lateinit var player: MediaPlayer
 
@@ -28,6 +27,13 @@ class AudioPlayerService : AppCompatActivity() {
        player.isLooping = true
        player.start()
        Toast.makeText(this, "Service was Started", Toast.LENGTH_SHORT).show()
-        returnn
+        return START_STICKY // restart service in the case it was stopped and destroyed/killed
+    }
+
+    // Override the onDestroy method of the service class
+    override fun onDestroy() {
+        super.onDestroy()
+        player.stop()
+        Toast.makeText(this, "Service being Destroyed", Toast.LENGTH_SHORT).show()
     }
 }
