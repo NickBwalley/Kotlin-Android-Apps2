@@ -1,8 +1,11 @@
 package com.example.notifications
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +17,13 @@ class MainActivity : AppCompatActivity() {
     val CHANNEL_ID = "channelID" //unique as there can be other channel IDs
     val CHANNEL_NAME = "channelName" // name for notification channel created
     val NOTIFICATION_ID = 0 // uniquely identify notification in the channel
+
+    // declaring variables
+    lateinit var notificationManager: NotificationManager
+    lateinit var notificationChannel: NotificationChannel
+    lateinit var builder: Notification.Builder
+    private val channelId = "i.apps.notifications"
+    private val description = "Test notification"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,24 +44,42 @@ class MainActivity : AppCompatActivity() {
             .build()
         val notificationManager = NotificationManagerCompat.from(this)
 
-        btnNotify.setOnClickListener{
+        btnNotify.setOnClickListener {
             notificationManager.notify(NOTIFICATION_ID, notification)
         }
-    }
 
-    // function to create Notification channel
-    fun createNotificationChannel() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.0){
-            val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
-            NotificationManager.IMPORTANCE_HIGH)
-            // Using channel object name we can modify the bahevior of notification eg LED light color
-            channel.lightColor = color.GREEN
-            channel.enableLights(true)
+        // checking if android version is greater than oreo(API 26) or not
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationChannel =
+                NotificationChannel(channelId, description, NotificationManager.IMPORTANCE_HIGH)
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.GREEN
+            notificationChannel.enableVibration(false)
+            notificationManager.createNotificationChannel(notificationChannel)
 
-            // create notification manager which will create notification channel
-            val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            manager.createNotificationChannel(channel)
+            builder = Notification.Builder(this, channelId)
+                .setContent(contentView)
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setLargeIcon(
+                    BitmapFactory.decodeResource(
+                        this.resources,
+                        R.drawable.ic_launcher_background
+                    )
+                )
+                .setContentIntent(pendingIntent)
+        } else {
 
+            builder = Notification.Builder(this)
+                .setContent(contentView)
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setLargeIcon(
+                    BitmapFactory.decodeResource(
+                        this.resources,
+                        R.drawable.ic_launcher_background
+                    )
+                )
+                .setContentIntent(pendingIntent)
         }
+        notificationManager.notify(1234, builder.build())
     }
 }
