@@ -25,11 +25,25 @@ class MainActivity : AppCompatActivity() {
         var sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
 
         // whenever we want to write to SharedPrefences, we need its editor
-        var editor = sharedPref.edit() // the ecit function returns the editor of our shared preference reference
+        var editor = sharedPref.edit() // the edit function returns the editor of our shared preference reference
 
         // Retrieve data in edit texts and store them in SharedPreferences by clicking button
         btnSave.setOnClickListener{
-            // first argument is key of our preferences; second arg default value if preference data is not found
+
+            var name = nameET.text.toString() //getData from edit text
+            var age = ageET.text.toString().toInt() // get age val from edit tet as an integer
+            var isAdult = checkAge.isChecked // Boolean value os whether the check box is checked or not
+
+            //Data can now be saved to the shared preferences using the editor object we created above
+            // within shared prefences, data is saved as KEY - VALUE pairs
+            editor.putString("name", name)
+            editor.putInt("age", age)
+            editor.putBoolean("isAdult", isAdult)
+            editor.apply() // used to write data to shared preferences asychronously --commit() does so synchronously
+
+
+        }
+        btnLoad.setOnClickListener{
             var name = sharedPref.getString("name", null)
             var age = sharedPref.getInt("age", 0)
             var isAdult = sharedPref.getBoolean("isAdult", false)
@@ -38,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             nameET.setText(name)
             ageET.setText(age.toString())
             checkAge.isChecked = isAdult
-        } // closes btnLoad's onclick listener
+        }
+    // closes btnLoad's onclick listener
     }// closes onCreate
 } // closes MainActivity : AppCompatActivity(
