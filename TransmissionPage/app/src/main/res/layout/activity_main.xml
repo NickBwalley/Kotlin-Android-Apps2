@@ -51,7 +51,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_marginTop="52dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="112dp"
         android:text="Select ward"
         android:textSize="23sp"
         app:layout_constraintEnd_toStartOf="@+id/wardsp"
@@ -117,47 +117,51 @@
         app:layout_constraintTop_toBottomOf="@+id/constituencysp"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
+    <EditText
         android:id="@+id/votepercandidate"
-        android:layout_width="292dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="84dp"
-        android:text="Vote per candidate"
-        android:textSize="23sp"
+        android:layout_width="299dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="60dp"
+        android:hint="Fill the Vote per candidate"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.638"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/county" />
 
-    <TextView
+    <EditText
         android:id="@+id/rejectedballotpapers"
-        android:layout_width="284dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="48dp"
-        android:text="Rejected Ballot Papers"
-        android:textSize="23sp"
+        android:layout_width="302dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="56dp"
+        android:hint="Fill the Number of Rejected Ballot Papers"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.598"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/votepercandidate" />
 
-    <TextView
+    <EditText
         android:id="@+id/disputedvotes"
-        android:layout_width="279dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="45dp"
-        android:text="Number of disputed votes"
-        android:textSize="23sp"
+        android:layout_width="296dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="72dp"
+        android:hint="Fill the Number of disputed votes"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rejectedballotpapers" />
 
-    <TextView
+    <EditText
         android:id="@+id/validvotes"
-        android:layout_width="272dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="45dp"
-        android:text="Number of valid votes"
-        android:textSize="23sp"
+        android:layout_width="313dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="64dp"
+        android:hint="Fill the Number of valid votes"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/disputedvotes" />
 
@@ -167,7 +171,7 @@
         android:layout_height="62dp"
         android:layout_marginTop="59dp"
         android:text="upload results"
-        android:textSize="23sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
